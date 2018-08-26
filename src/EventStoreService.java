@@ -41,19 +41,18 @@ public class EventStoreService implements EventStore {
 	@Override
 	public EventIterator query(String type, long startTime, long endTime) {
 		// TODO Auto-generated method stub
-
-		ListIterator<Event> iter = this.events.listIterator();
+		ListIterator<Event> iter = events.listIterator();
 		while(iter.hasNext()){
 			Event event = iter.next();
 			System.out.println("Getting event: " + event.type() + ", timestamp: "+ event.timestamp()+" from list");
 			
 		    if(event.type().equals(type) && event.timestamp()>=startTime && event.timestamp()< endTime){
-		    	this.sub_events.add(event);
+		    	sub_events.add(event);
 		        System.out.println("Adding event : " + event.type() + ", timestamp: "+ event.timestamp()+ " to subList");
-		        System.out.println("SubList size : " + this.sub_events.size());
+		        System.out.println("SubList size : " + sub_events.size());
 		    }
 		}
-		EventIterator iteratorSubList = new EventIteratorService(this.sub_events);
+		EventIterator iteratorSubList = new EventIteratorService(sub_events);
 		return iteratorSubList;
 	}
 }
