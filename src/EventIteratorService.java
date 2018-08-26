@@ -41,7 +41,7 @@ public class EventIteratorService implements EventIterator {
 	public Event current() {
 		// TODO Auto-generated method stub
 		if(!getControl()) {
-			throw new IllegalStateException("Exception from current method");
+			throw new IllegalStateException("Exception from current() method");
 		}
 		return iter.next();
 	}
@@ -50,7 +50,7 @@ public class EventIteratorService implements EventIterator {
 	public void remove() {
 		// TODO Auto-generated method stub
 		if(!getControl()) {
-			throw new IllegalStateException("Exception from remove method");
+			throw new IllegalStateException("Exception from remove() method");
 		}
 		iter.remove();
 		iter.next();
