@@ -29,7 +29,7 @@ public class EventStoreService implements EventStore {
 		// TODO Auto-generated method stub
 		ListIterator<Event> iter = events.listIterator();
 		while(iter.hasNext()){
-			Event event = iter.next();
+		    Event event = iter.next();
 		    if(event.type().equals(type)){
 		        iter.remove();
 		        System.out.println("Removing event: " + event.type() + ", timestamp: "+ event.timestamp()+" from list");
@@ -44,8 +44,8 @@ public class EventStoreService implements EventStore {
 
 		ListIterator<Event> iter = events.listIterator();
 		while(iter.hasNext()){
-			Event event = iter.next();
-			System.out.println("Getting event: " + event.type() + ", timestamp: "+ event.timestamp()+" from list");
+		    Event event = iter.next();
+		    System.out.println("Getting event: " + event.type() + ", timestamp: "+ event.timestamp()+" from list");
 			
 		    if(event.type().equals(type) && event.timestamp()>=startTime && event.timestamp()< endTime){
 		    	sub_events.add(event);
