@@ -41,6 +41,7 @@ public class EventStoreService implements EventStore {
 	@Override
 	public EventIterator query(String type, long startTime, long endTime) {
 		// TODO Auto-generated method stub
+
 		ListIterator<Event> iter = events.listIterator();
 		while(iter.hasNext()){
 			Event event = iter.next();
@@ -55,4 +56,9 @@ public class EventStoreService implements EventStore {
 		EventIterator iteratorSubList = new EventIteratorService(sub_events);
 		return iteratorSubList;
 	}
+	// Only to JUnit test
+	public List<Event> getEvents() {
+		return events;
+	}
+
 }
