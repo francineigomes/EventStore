@@ -54,7 +54,6 @@ public class EventIteratorService implements EventIterator {
 		}
 		iter.remove();
 		iter.next();
-		//events.remove(current());
 		System.out.println("Final list size from remove(): " + events.size());
 	}
 
